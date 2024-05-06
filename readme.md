@@ -1,4 +1,5 @@
-### Preface:
+# Preface
+
 Command line 'cronexp' application parses a cron string and expands each field to show the times at which it will run.
 The cron string should be passed to the application as a single argument, e.g.
 
@@ -6,12 +7,13 @@ The cron string should be passed to the application as a single argument, e.g.
 ~$ cronexp "*/15 0 1,15 * 1-5 /usr/bin/find"
 </pre>
 
-The output is formatted as a table with the field name taking the first 14 columns and the times as a space-separated list following it.
+The output is formatted as a table with the field name taking the first 14 columns and the times as a space-separated
+list following it.
 
 For example, the following input argument:
 <pre>*/15 0 1,15 * 1-5 /usr/bin/find</pre>
 
-Prints  the following output:
+Prints the following output:
 <pre>
 minute        0 15 30 45
 hour          0
@@ -21,24 +23,69 @@ day of week   1 2 3 4 5
 command       /usr/bin/find
 </pre>
 
-### Prerequisites:
+Application supports:
+- \* as 'every value' for specified part
+- lists, eg. 1,2,3
+- ranges, e.g 1-3
+- intervals, e.g. 1/3, */15
+- ranges of values and lists in one "cron part" e.g. 1,3,5-7,15-18
+- aliases for **dayOfWeek** and **month**
+
+## Aliases
+All aliases are case-insensitive
+
+### day Of Week
+
+| Alias | Value |
+|-------|-------|
+| mon   | 1     |
+| tue   | 2     |
+| wed   | 3     |
+| thu   | 4     |
+| fri   | 5     |
+| sat   | 6     |
+| sun   | 7     |
+
+### month
+
+| Alias | Value |
+|-------|-------|
+| jan   | 1     |
+| feb   | 2     |
+| mar   | 3     |
+| apr   | 4     |
+| may   | 5     |
+| jun   | 6     |
+| jul   | 7     |
+| aug   | 8     |
+| sep   | 9     |
+| oct   | 10    |
+| nov   | 11    |
+| dec   | 12    |
+
+# Prerequisites
 
 Building application requires:
+
 - Java 17+ compiler on classpath
 
-### Building
+# Building
+
 Having downloaded application repository it can be build using one of the following commands:
 
 1. Create tar+zip
+
 <pre>/gradlew assembleDist</pre>
 
 2. Create zip only
+
 <pre>/gradlew/distZip</pre>
 
-The Distribution Plugin creates one or two archives: zip (+ tar optionally). 
+The Distribution Plugin creates one or two archives: zip (+ tar optionally).
 Their contents are identical and include the project jar, all dependency jars, and two scripts: Bash and .bat-file.
 
-### Running
+# Running
+
 We can use <code>/build/distributions/cronexp/build/distributions/cronexp.zip</code> archive to run cronexp application
 
 Before we run the application it must be unpacked first:
