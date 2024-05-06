@@ -34,7 +34,7 @@ Application supports:
 ## Aliases
 All aliases are case-insensitive
 
-### day Of Week
+### day of week
 
 | Alias | Value |
 |-------|-------|
@@ -65,13 +65,14 @@ All aliases are case-insensitive
 
 # Prerequisites
 
-Building application requires:
+Application requirements:
+- Installed Java 17+ compiler on classpath
 
-- Java 17+ compiler on classpath
+# Cloning application
+<pre>git clone git@github.com:januszkowal/cronexp.git</pre>
 
 # Building
-
-Having downloaded application repository it can be build using one of the following commands:
+Having downloaded application repository it can be built and distributed using one of the following commands:
 
 1. Create tar+zip
 
