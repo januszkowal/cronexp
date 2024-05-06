@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
     }
     val cronArgs = args[0].split(" ");
     if (cronArgs.size != 6) {
-        throw IllegalArgumentException("Invalid number of arguments. Expected 6 provided ${args.size}")
+        throw IllegalArgumentException("Invalid number of argument parts. Expected 6 provided ${cronArgs.size}")
     }
     val cron = CronFactory().create(cronArgs[0], cronArgs[1], cronArgs[2], cronArgs[3], cronArgs[4], cronArgs[5])
     val info = cron.info()

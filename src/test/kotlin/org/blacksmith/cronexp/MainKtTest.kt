@@ -11,7 +11,7 @@ class MainKtTest {
     /*
      * Purpose of this test method is to validate System output produced by commonMain
      * */
-//    @Test
+    @Test
     fun shouldWriteCronValuesToStandardOutput() {
         val consoleStream = System.out
         val outputStream = ByteArrayOutputStream()
@@ -32,11 +32,12 @@ class MainKtTest {
         )
     }
 
-//    @Test
-    fun shouldThrowErrorWhenArgumentsInvalid() {
+    @Test
+    fun shouldThrowErrorWhenArgumentInvalid() {
         val exception = assertFailsWith(exceptionClass = IllegalArgumentException::class, block = {
             main(arrayOf("*/15 0 1,15 * 1-5"))
         })
-        assertTrue(exception.message?.contains("Invalid number of arguments. Expected 6 provided 5") ?: false)
+        System.out.println(exception.message)
+        assertTrue(exception.message?.contains("Invalid number of argument parts. Expected 6 provided 5") ?: false)
     }
 }

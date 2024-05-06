@@ -6,8 +6,6 @@ import org.blacksmith.cronexp.cronpart.CronPartList
 import org.blacksmith.cronexp.cronpart.CronPartRange
 import org.blacksmith.cronexp.exception.InvalidExpressionException
 import org.blacksmith.cronexp.exception.ParseException
-import java.lang.NumberFormatException
-import kotlin.jvm.Throws
 
 class CronPartFactory(
     private val partName: String,
@@ -67,8 +65,7 @@ class CronPartFactory(
     private fun createIntervalPart(subexpression: String): CronPart {
         var intervalArgs = subexpression.split("/")
         var startExpr = intervalArgs[0]
-        var start: Int
-        start = if (startExpr.equals("*")) {
+        var start: Int = if (startExpr.equals("*")) {
             range.first
         } else {
             mapValue(startExpr)
