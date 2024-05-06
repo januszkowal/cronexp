@@ -41,8 +41,8 @@ Their contents are identical and include the project jar, all dependency jars, a
 ### Running
 We can use <code>/build/distributions/cronexp/build/distributions/cronexp.zip</code> archive to run cronexp application
 
-unpack it
+Before we run the application it must be unpacked first:
 <pre>unzip cronexp.zip</pre>
 
-and run the executable script:
+and now it can be run via executable script:
 <pre>./cronexp/bin/cronexp "*/15 0 1,15 * 1-5 /usr/bin/find"</pre>
